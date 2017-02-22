@@ -10,10 +10,10 @@ int main(int argc, char **argv){
 
     if(argc == 2){
         
-        file = open(argv[1], O_CREAT | O_WRONLY, 0600);
+        file = open(argv[1], O_CREAT | O_WRONLY, 0777);/*PQEQ NAO DA AS PERMISSOES TODAS!?!?!*/
         if (file == -1) perror("RIP"), exit(-1);
 
-        for(i=0 ; i < 10 * 1024 * 1024 ; i++)
+        for(i=0 ; i < 10*1024*1024 ; i++)
             write(file, &c, 1);
 
         exit(0);

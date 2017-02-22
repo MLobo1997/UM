@@ -4,10 +4,10 @@
 #include <fcntl.h>    /* O_RDONLY, O_WRONLY, O_CREAT, O_* */
 
 int main(){
-    int error = 0; 
+    int error = 1; 
     char *print;
 
-    while (error == 0){
+    while (error == 1){
         error = read(0, print, 1);
         write(1, print, 1);
     }
