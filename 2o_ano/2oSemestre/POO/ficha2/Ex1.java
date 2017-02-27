@@ -1,7 +1,7 @@
 import java.util.Arrays;
 
 public class Ex1{
-    public static void main (){
+    public static void main (String [] argc){
         int []lista = {12 , 2 ,  45, 66, 7, 23,99};
         newschool(lista);
     }

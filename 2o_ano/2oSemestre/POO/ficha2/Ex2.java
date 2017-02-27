@@ -3,7 +3,7 @@ import java.lang.Integer;
 import java.util.Scanner;
 
 public class Ex2{
-    public static void main(){
+    public static void main(String [] argc){
         int [] lista = lerArrayInt(5);
 
         newschool(lista);
