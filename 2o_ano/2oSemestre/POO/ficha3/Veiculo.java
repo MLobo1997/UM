@@ -4,9 +4,9 @@ public class Veiculo{
     private double kmsParcial;
     private double consumoMedio;
     private int capacidade;
-    private int conteudo;
+    private double conteudo;
 
-    public Veiculo(String matricula, double kmsTotal, double kmsParcial, double consumoMedio, int capacidade, int conteudo){
+    public Veiculo(String matricula, double kmsTotal, double kmsParcial, double consumoMedio, int capacidade, double conteudo){
         this.matricula=matricula;
         this.kmsTotal=kmsTotal;
         this.kmsParcial=kmsParcial;
@@ -34,7 +34,7 @@ public class Veiculo{
         return this.capacidade;
     }
 
-    public int getconteudo(){
+    public double getconteudo(){
         return this.conteudo;
     }
 
@@ -57,13 +57,13 @@ public class Veiculo{
         this.capacidade=capacidade;
     }
 
-    public void setconteudo(int conteudo){
+    public void setconteudo(double conteudo){
         this.conteudo=conteudo;
     }
 
-    public void abastecer(int litros){
-        int Cfinal = this.conteudo + litros;
-        if(Cfinal > capacidade) this.conteudo=capacidade;
+    public void abastecer(double litros){
+        double Cfinal = this.conteudo + litros;
+        if(Cfinal > capacidade) this.conteudo=(double)capacidade;
         else this.conteudo = Cfinal;
     }
 
@@ -77,7 +77,14 @@ public class Veiculo{
     }
 
     public void registarViagem(int kms, double consumo){
+        double l = (getconsumoMedio() * getkmsParcial())/100;
         setkmsTotal(getkmsTotal() + kms);
+        setkmsParcial(getkmsParcial() + kms);
+        setconsumoMedio(((l + consumo)/getkmsParcial())*100);
+        setconteudo(getconteudo() - consumo);
     }
 
+    public double totalCombustivel(double custoLitro){
+        return (custoLitro * getkmsParcial() * getconsumoMedio()/100);
+    }
 }
