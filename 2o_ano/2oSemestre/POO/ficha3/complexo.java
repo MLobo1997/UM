@@ -1,4 +1,4 @@
-public class Complexo{
+2public class Complexo{
 
     private double a;
     private double b;

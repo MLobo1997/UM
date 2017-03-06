@@ -87,4 +87,11 @@ public class Veiculo{
     public double totalCombustivel(double custoLitro){
         return (custoLitro * getkmsParcial() * getconsumoMedio()/100);
     }
+
+    public String toString(){
+        StringBuilder s = new StringBuilder();
+        s.append("Veículo: ");
+        s.append(matricula);
+        return s.toString();
+    }
 }
