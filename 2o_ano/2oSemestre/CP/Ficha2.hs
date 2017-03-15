@@ -4,8 +4,8 @@ data Atl
 data Jog
 data Dat
 
-f1 :: [(Dat, [Jog])] -> [(Jog,[Atl])] -> [(Atl,[Dat])]
-f1 = undefined
+f :: [(Dat, [Jog])] -> [(Jog,[Atl])] -> [(Atl,[Dat])]
+f = undefined
 
 collect ::[(a,b)] -> [(a,[b])]
 collect = undefined
