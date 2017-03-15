@@ -24,9 +24,4 @@ int main(){
         }
         else printf("FODEU");
     }
-/*
-    wait(&status);
-    s = WEXITSTATUS(status);
-    printf("exist status do filho pid = %d\n", s);
-    */
 }
