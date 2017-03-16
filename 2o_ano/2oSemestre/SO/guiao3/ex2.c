@@ -5,9 +5,10 @@
 
 int main(){
     int p = fork();
-    if(p!=0) execlp("ls","ls","-l", NULL);
+    
+    if(p == 0) execlp("ls","ls","-la", NULL);
+    else wait(&p), printf("--------------------------\nAgora sim, morre o pai!\n"), _exit(0);
 
-    if(p==0) printf("O pai viveu\n");
     return 0;
 }
 
