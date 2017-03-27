@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Parque()
+comment1.params=n\ p
+comment1.target=Parque(java.lang.String,\ java.util.Map)
+comment10.params=x
+comment10.target=java.util.List\ matriculasTempo2(int)
+comment2.params=
+comment2.target=java.util.Map\ getLugares()
+comment3.params=
+comment3.target=java.util.Set\ ocupados()
+comment4.params=l
+comment4.target=void\ novoLugar(Lugar)
+comment5.params=matricula
+comment5.target=void\ removeLugar(java.lang.String)
+comment6.params=m\ min
+comment6.target=void\ alteraTempo(java.lang.String,\ int)
+comment7.params=
+comment7.target=int\ quantidadeMinutos()
+comment8.params=
+comment8.target=int\ quantidadeMinutos2()
+comment9.params=x
+comment9.target=java.util.List\ matriculasTempo(int)
+numComments=11

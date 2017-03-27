@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Lugar()
+comment1.params=matricula\ nome\ minutos\ permanente
+comment1.target=Lugar(java.lang.String,\ java.lang.String,\ int,\ boolean)
+comment2.params=l
+comment2.target=Lugar(Lugar)
+comment3.params=
+comment3.target=java.lang.String\ getMatricula()
+comment4.params=
+comment4.target=java.lang.String\ getNome()
+comment5.params=
+comment5.target=int\ getMinutos()
+comment6.params=
+comment6.target=boolean\ getPermanente()
+comment7.params=
+comment7.target=Lugar\ clone()
+comment8.params=m
+comment8.target=void\ setMinutos(int)
+numComments=9
