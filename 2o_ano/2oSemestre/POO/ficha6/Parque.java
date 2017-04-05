@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.TreeSet;
+import java.util.Comparator;
 
 public class Parque{
     private String nome;
@@ -85,5 +87,12 @@ public class Parque{
             }
         }
         return nova;
+    }
+
+    public Set<Lugar> lugaresOrdenadosPorTempo(){
+        Set<Lugar> t = new TreeSet<>(new ComparadorMinutos()); 
+        for(Lugar l: this.lugares.values())
+            t.add(l.clone());
+        return t;
     }
 }
