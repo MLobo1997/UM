@@ -3,7 +3,7 @@
 #include <unistd.h>
 #include <sys/wait.h>
 
-int lineCheck(int n, int mat[3][3], int N, int l){
+int lineCheck(int n, int mat[][], int N, int l){
     int i;
 
     for(i=0 ; i < N && mat[l][i] != n ; i++);

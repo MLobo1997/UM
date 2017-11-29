@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=ListaEleitoral
+comment1.params=partidoPolitico\ candidatos
+comment1.target=ListaEleitoral(java.lang.String,\ java.util.Collection)
+comment2.params=
+comment2.target=Candidato\ aEleger()
+comment3.params=
+comment3.target=void\ elege()
+numComments=4

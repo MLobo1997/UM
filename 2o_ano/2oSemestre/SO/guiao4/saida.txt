@@ -1,0 +1,14 @@
+TA LA DENTRO
+1.c
+2
+2.c
+3
+3.c
+4-1.c
+4.c
+AULA
+a.out
+error.txt
+redir
+redir.dSYM
+saida.txt

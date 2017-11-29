@@ -1,0 +1,73 @@
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
+CREATE SCHEMA IF NOT EXISTS `Hotels` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+
+CREATE TABLE IF NOT EXISTS `Hotels`.`Hotels` (
+  `HotelNo` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `HotelName` VARCHAR(45) NOT NULL,
+  `City` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`HotelNo`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8
+COLLATE = utf8_general_ci;
+
+CREATE TABLE IF NOT EXISTS `Hotels`.`Rooms` (
+  `roomNo` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `Hotels_HotelNo` INT(10) UNSIGNED NOT NULL,
+  `Type` VARCHAR(45) NULL DEFAULT NULL,
+  `Price` VARCHAR(45) NULL DEFAULT NULL,
+  PRIMARY KEY (`roomNo`, `Hotels_HotelNo`),
+  INDEX `fk_Rooms_Hotels_idx` (`Hotels_HotelNo` ASC),
+  CONSTRAINT `fk_Rooms_Hotels`
+    FOREIGN KEY (`Hotels_HotelNo`)
+    REFERENCES `Hotels`.`Hotels` (`HotelNo`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8
+COLLATE = utf8_general_ci;
+
+CREATE TABLE IF NOT EXISTS `Hotels`.`Bookings` (
+  `dateFrom` DATE NOT NULL,
+  `dateTo` DATE NOT NULL,
+  `Rooms_roomNo` INT(10) UNSIGNED NOT NULL,
+  `Hotels_HotelNo` INT(10) UNSIGNED NOT NULL,
+  `Guest_GuestNo` INT(10) UNSIGNED NOT NULL,
+  PRIMARY KEY (`dateFrom`, `Hotels_HotelNo`, `Guest_GuestNo`),
+  INDEX `fk_Bookings_Rooms1_idx` (`Rooms_roomNo` ASC),
+  INDEX `fk_Bookings_Hotels1_idx` (`Hotels_HotelNo` ASC),
+  INDEX `fk_Bookings_Guest1_idx` (`Guest_GuestNo` ASC),
+  CONSTRAINT `fk_Bookings_Rooms1`
+    FOREIGN KEY (`Rooms_roomNo`)
+    REFERENCES `Hotels`.`Rooms` (`roomNo`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Bookings_Hotels1`
+    FOREIGN KEY (`Hotels_HotelNo`)
+    REFERENCES `Hotels`.`Hotels` (`HotelNo`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Bookings_Guest1`
+    FOREIGN KEY (`Guest_GuestNo`)
+    REFERENCES `Hotels`.`Guest` (`GuestNo`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8
+COLLATE = utf8_general_ci;
+
+CREATE TABLE IF NOT EXISTS `Hotels`.`Guest` (
+  `GuestNo` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `GuestName` VARCHAR(45) NOT NULL,
+  `guestAddress` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`GuestNo`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8
+COLLATE = utf8_general_ci;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
