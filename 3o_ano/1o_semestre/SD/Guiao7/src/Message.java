@@ -1,4 +1,9 @@
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
+
+import static java.time.format.DateTimeFormatter.ISO_DATE;
+import static java.time.format.DateTimeFormatter.RFC_1123_DATE_TIME;
 
 public class Message {
     private LocalDateTime time;
@@ -21,5 +26,17 @@ public class Message {
 
     public String getText() {
         return text;
+    }
+
+    public String toString(){
+        StringBuilder str = new StringBuilder();
+
+        str.append(time.toString());
+        str.append(" [");
+        str.append(user);
+        str.append("]: ");
+        str.append(text);
+
+        return str.toString();
     }
 }
